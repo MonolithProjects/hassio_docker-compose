@@ -1,0 +1,15 @@
+version: '3'
+services:
+  hassio_supervisor:
+    image: "homeassistant:amd/4-hassio-supervisor"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/run/dbus:/var/run/dbus
+      - /opt/dock/containers/hassio/share:/data
+    environment:
+      - SUPERVISOR_SHARE=/opt/dock/containers/hassio/share
+      - SUPERVISOR_NAME=hassio_supervisor
+      - HOMEASSISTANT_REPOSITORY=homeassistant:x86_64-homeassistant
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
