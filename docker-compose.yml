@@ -7,9 +7,9 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /var/run/dbus:/var/run/dbus
-      - /opt/dock/containers/hassio/share:/data
+      - ${SUPERVISOR_SHARE-/usr/share/hassio}:/data
     environment:
-      - SUPERVISOR_SHARE=/opt/dock/containers/hassio/share
+      - SUPERVISOR_SHARE=${SUPERVISOR_SHARE-/usr/share/hassio}
       - SUPERVISOR_NAME=hassio_supervisor
       - HOMEASSISTANT_REPOSITORY=homeassistant/qemux86-homeassistant
     security_opt:
