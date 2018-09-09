@@ -4,7 +4,9 @@ services:
     container_name: hassio_supervisor
     image: "homeassistant/amd64-hassio-supervisor"
     restart: unless-stopped
+    privileged: true
     volumes:
+      - /etc/timezone:/etc/timezone:ro
       - /var/run/docker.sock:/var/run/docker.sock
       - /var/run/dbus:/var/run/dbus
       - ${SUPERVISOR_SHARE-/usr/share/hassio}:/data
