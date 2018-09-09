@@ -1,9 +1,7 @@
 ## Requirements
 ```
 docker-ce
-bash
-jq
-curl
+docker-compose
 avahi
 dbus
 ```
