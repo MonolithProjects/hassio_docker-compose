@@ -3,6 +3,7 @@ services:
   hassio_supervisor:
     container_name: hassio_supervisor
     image: "homeassistant/amd64-hassio-supervisor"
+    restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /var/run/dbus:/var/run/dbus
