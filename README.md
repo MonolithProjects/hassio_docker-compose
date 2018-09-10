@@ -9,7 +9,7 @@ dbus
 
 
 ## Run
-If you want to use standard folder for Hass-supervisor data:
+If you want to use standard folder for Hass-supervisor data (defauld is in /usr/share/hassio - needs to be created):
 ```
 docker-compose up
 ```
