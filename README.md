@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/MonolithProjects/virt_wizard.svg?branch=master)](https://travis-ci.org/MonolithProjects/virt_wizard)  
+
 ## Requirements
 ```
 docker-ce
