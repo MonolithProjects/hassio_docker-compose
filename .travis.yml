@@ -1,28 +1,28 @@
 version: '2.1'
 
 services:
-  - docker
+ - docker
 
 env:
-  - DOCKER_COMPOSE_VERSION=1.23.2
+ - DOCKER_COMPOSE_VERSION=1.23.2
 
 branches:
-  only:
-    - master
-    - develop
+ only:
+  - master
+  - develop
 
 before_install:
-  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-  - sudo apt-get update
-  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
+ - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+ - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+ - sudo apt-get update
+ - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+ - sudo rm /usr/local/bin/docker-compose
+ - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+ - chmod +x docker-compose
+ - sudo mv docker-compose /usr/local/bin
 
 script:
-  - docker-compose up -d
-  - RESULT=`docker-compose ps |grep hassio`
-  - echo "$RESULT"
-  - if [ -z "$RESULT" ]; then echo "Hassio is not running."; exit 1 ;fi
+ - docker-compose up -d
+ - RESULT=`docker-compose ps |grep hassio`
+ - echo "$RESULT"
+ - if [ -z "$RESULT" ]; then echo "Hassio is not running."; exit 1 ;fi
