@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/MonolithProjects/hassio_docker-compose.svg?branch=master)](https://travis-ci.org/MonolithProjects/hassio_docker-compose) [![Build Status](https://travis-ci.org/MonolithProjects/hassio_docker-compose.svg?branch=develop)](https://travis-ci.org/MonolithProjects/hassio_docker-compose)
+Master : [![Build Status](https://travis-ci.org/MonolithProjects/hassio_docker-compose.svg?branch=master)](https://travis-ci.org/MonolithProjects/hassio_docker-compose)  
+Develop: [![Build Status](https://travis-ci.org/MonolithProjects/hassio_docker-compose.svg?branch=develop)](https://travis-ci.org/MonolithProjects/hassio_docker-compose)
 
 ## Requirements
 ```
