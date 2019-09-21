@@ -28,7 +28,6 @@ jobs:
             DOCKER_COMPOSE_VERSION: 1.23.2
         - name: Run docker-compose
           run: |
-            ls -l
             docker-compose up -d
         - name: Check the result
           run: |
