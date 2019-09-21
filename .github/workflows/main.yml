@@ -24,10 +24,10 @@ jobs:
         chmod +x docker-compose
         sudo mv docker-compose /usr/local/bin
     - name: Run docker-compose
-        run: |
-            docker-compose up -d
+      run: |
+        docker-compose up -d
     - name: Check the result
-        run: |
-            RESULT=`docker-compose ps |grep hassio`
-            echo "$RESULT"
-            if [ -z "$RESULT" ]; then echo "Hassio is not running."; exit 1 ;fi
+      run: |
+        RESULT=`docker-compose ps |grep hassio`
+        echo "$RESULT"
+        if [ -z "$RESULT" ]; then echo "Hassio is not running."; exit 1 ;fi
