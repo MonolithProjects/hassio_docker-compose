@@ -1,4 +1,4 @@
-name: Docker compose test build
+name: Docker_test_build
 
 on:
     push:
