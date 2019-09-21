@@ -23,11 +23,11 @@ jobs:
         sudo mv docker-compose /usr/local/bin
       env:
         DOCKER_COMPOSE_VERSION: 1.23.2
-    - name: Run docker-compose
-      run: |
-        docker-compose up -d
-    - name: Check the result
-      run: |
-        RESULT=`docker-compose ps |grep hassio`
-        echo "$RESULT"
-        if [ -z "$RESULT" ]; then echo "Hassio is not running."; exit 1 ;fi
+    # - name: Run docker-compose
+    #   run: |
+    #     docker-compose up -d
+    # - name: Check the result
+    #   run: |
+    #     RESULT=`docker-compose ps |grep hassio`
+    #     echo "$RESULT"
+    #     if [ -z "$RESULT" ]; then echo "Hassio is not running."; exit 1 ;fi
