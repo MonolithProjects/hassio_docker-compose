@@ -10,7 +10,7 @@ jobs:
     build:
         runs-on: ubuntu-latest
 
-    steps: 
+    steps:
     - name: Install prereqs
       run: |
         curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -22,7 +22,7 @@ jobs:
         chmod +x docker-compose
         sudo mv docker-compose /usr/local/bin
       env:
-        DOCKER_COMPOSE_VERSION=1.23.2
+        DOCKER_COMPOSE_VERSION: "1.23.2"
     - name: Run docker-compose
       run: |
         docker-compose up -d
