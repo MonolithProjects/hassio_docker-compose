@@ -13,6 +13,11 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - uses: actions/checkout@master
+        - name: Find latest docker-compose
+          run: |
+            export DOCKER_COMPOSE_VERSION=$(curl -s https://api.github.com/repos/docker/compose/releases |jq -r '.[]|.name'|grep -v "rc"|head -1)
+            echo "Latest docker-compose version is $DOCKER_COMPOSE_VERSION"
+            echo ::set-env name=DOCKER_COMPOSE_VERSION::"$DOCKER_COMPOSE_VERSION"
         - name: Install prereqs
           run: |
             echo "test"
@@ -21,11 +26,10 @@ jobs:
             sudo apt-get update
             sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
             sudo rm /usr/local/bin/docker-compose
+            echo "Downloading docker-compose $DOCKER_COMPOSE_VERSION"
             curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
             chmod +x docker-compose
             sudo mv docker-compose /usr/local/bin
-          env:
-            DOCKER_COMPOSE_VERSION: 1.25.0
         - name: Run docker-compose
           run: |
             docker-compose up -d
