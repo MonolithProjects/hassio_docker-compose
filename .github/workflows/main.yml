@@ -25,7 +25,7 @@ jobs:
             chmod +x docker-compose
             sudo mv docker-compose /usr/local/bin
           env:
-            DOCKER_COMPOSE_VERSION: 1.25.0
+            DOCKER_COMPOSE_VERSION: $(curl -s https://api.github.com/repos/docker/compose/releases | jq -r '.[]|.name' | grep -v "rc" | head -1)
         - name: Run docker-compose
           run: |
             docker-compose up -d
