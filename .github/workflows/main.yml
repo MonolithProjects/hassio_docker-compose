@@ -21,12 +21,12 @@ jobs:
             sudo apt-get update
             sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
             sudo rm /usr/local/bin/docker-compose
-            curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+            DOCKER_COMPOSE_VERSION=${{ secrets.DOCKER_COMPOSE_VERSION }} curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
             chmod +x docker-compose
             sudo mv docker-compose /usr/local/bin
         - name: Run docker-compose
           run: |
-            DOCKER_COMPOSE_VERSION=${{ secrets.DOCKER_COMPOSE_VERSION }} docker-compose up -d
+            docker-compose up -d
         - name: Check the result
           run: |
             RESULT=`docker-compose ps |grep hassio`
