@@ -13,6 +13,11 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - uses: actions/checkout@master
+        - name: Find latest docker-compose
+          run: |
+            export DOCKER_COMPOSE_VERSION=$(curl -s https://api.github.com/repos/docker/compose/releases |jq -r '.[]|.name'|grep -v "rc"|head -1)
+            echo "Latest docker-compose version is $DOCKER_COMPOSE_VERSION"
+            echo ::set-env name=DOCKER_COMPOSE_VERSION::"$DOCKER_COMPOSE_VERSION"
         - name: Install prereqs
           run: |
             echo "test"

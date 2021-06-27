@@ -1,4 +1,3 @@
-[![](https://travis-ci.org/MonolithProjects/hassio_docker-compose.svg?branch=master)](https://travis-ci.org/MonolithProjects/hassio_docker-compose)
 [![](https://github.com/MonolithProjects/hassio_docker-compose/workflows/Test%20build/badge.svg)](https://github.com/MonolithProjects/hassio_docker-compose/actions)  
 
 ## Requirements
