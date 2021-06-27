@@ -24,10 +24,9 @@ jobs:
             curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
             chmod +x docker-compose
             sudo mv docker-compose /usr/local/bin
-          env:
-            DOCKER_COMPOSE_VERSION: 1.25.5
         - name: Run docker-compose
           run: |
+            DOCKER_COMPOSE_VERSION=${{ secrets.DOCKER_COMPOSE_VERSION }}
             docker-compose up -d
         - name: Check the result
           run: |
