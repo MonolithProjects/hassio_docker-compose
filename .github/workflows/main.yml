@@ -26,8 +26,7 @@ jobs:
             sudo mv docker-compose /usr/local/bin
         - name: Run docker-compose
           run: |
-            DOCKER_COMPOSE_VERSION=${{ secrets.DOCKER_COMPOSE_VERSION }}
-            docker-compose up -d
+            DOCKER_COMPOSE_VERSION=${{ secrets.DOCKER_COMPOSE_VERSION }} docker-compose up -d
         - name: Check the result
           run: |
             RESULT=`docker-compose ps |grep hassio`
