@@ -3,6 +3,7 @@ services:
   hassio_supervisor:
     container_name: hassio_supervisor
     image: "homeassistant/amd64-hassio-supervisor"
+    entrypoint: ["/bin/bash", "-c", "/scripts/start_hassio.sh"]
     restart: unless-stopped
     privileged: true
     volumes:
